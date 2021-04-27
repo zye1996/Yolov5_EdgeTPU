@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/gemmlowp-subbuild/CMakeFiles/gemmlowp-populate"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/gemmlowp-subbuild/CMakeFiles/gemmlowp-populate.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/gemmlowp-subbuild/CMakeFiles/gemmlowp-populate-complete.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/gemmlowp-subbuild/gemmlowp-populate-prefix/src/gemmlowp-populate-stamp/gemmlowp-populate-install.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/gemmlowp-subbuild/gemmlowp-populate-prefix/src/gemmlowp-populate-stamp/gemmlowp-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/gemmlowp-subbuild/gemmlowp-populate-prefix/src/gemmlowp-populate-stamp/gemmlowp-populate-download.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/gemmlowp-subbuild/gemmlowp-populate-prefix/src/gemmlowp-populate-stamp/gemmlowp-populate-update.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/gemmlowp-subbuild/gemmlowp-populate-prefix/src/gemmlowp-populate-stamp/gemmlowp-populate-patch.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/gemmlowp-subbuild/gemmlowp-populate-prefix/src/gemmlowp-populate-stamp/gemmlowp-populate-configure.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/gemmlowp-subbuild/gemmlowp-populate-prefix/src/gemmlowp-populate-stamp/gemmlowp-populate-build.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/gemmlowp-subbuild/gemmlowp-populate-prefix/src/gemmlowp-populate-stamp/gemmlowp-populate-test.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"gemmlowp-populate"
+		],
+		"name" : "gemmlowp-populate"
+	}
+}

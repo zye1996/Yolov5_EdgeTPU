@@ -1,0 +1,14 @@
+# Target labels
+ ruy-populate
+# Source files and their labels
+/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/CMakeFiles/ruy-populate
+/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/CMakeFiles/ruy-populate.rule
+/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/CMakeFiles/ruy-populate-complete.rule
+/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/ruy-populate-prefix/src/ruy-populate-stamp/ruy-populate-install.rule
+/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/ruy-populate-prefix/src/ruy-populate-stamp/ruy-populate-mkdir.rule
+/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/ruy-populate-prefix/src/ruy-populate-stamp/ruy-populate-download.rule
+/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/ruy-populate-prefix/src/ruy-populate-stamp/ruy-populate-update.rule
+/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/ruy-populate-prefix/src/ruy-populate-stamp/ruy-populate-patch.rule
+/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/ruy-populate-prefix/src/ruy-populate-stamp/ruy-populate-configure.rule
+/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/ruy-populate-prefix/src/ruy-populate-stamp/ruy-populate-build.rule
+/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/ruy-populate-prefix/src/ruy-populate-stamp/ruy-populate-test.rule

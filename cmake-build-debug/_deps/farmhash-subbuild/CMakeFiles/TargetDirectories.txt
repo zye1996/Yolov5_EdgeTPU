@@ -1,0 +1,3 @@
+/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/farmhash-subbuild/CMakeFiles/rebuild_cache.dir
+/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/farmhash-subbuild/CMakeFiles/edit_cache.dir
+/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/farmhash-subbuild/CMakeFiles/farmhash-populate.dir

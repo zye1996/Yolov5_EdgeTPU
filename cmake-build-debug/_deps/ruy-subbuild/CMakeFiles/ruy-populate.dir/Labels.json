@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/CMakeFiles/ruy-populate"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/CMakeFiles/ruy-populate.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/CMakeFiles/ruy-populate-complete.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/ruy-populate-prefix/src/ruy-populate-stamp/ruy-populate-install.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/ruy-populate-prefix/src/ruy-populate-stamp/ruy-populate-mkdir.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/ruy-populate-prefix/src/ruy-populate-stamp/ruy-populate-download.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/ruy-populate-prefix/src/ruy-populate-stamp/ruy-populate-update.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/ruy-populate-prefix/src/ruy-populate-stamp/ruy-populate-patch.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/ruy-populate-prefix/src/ruy-populate-stamp/ruy-populate-configure.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/ruy-populate-prefix/src/ruy-populate-stamp/ruy-populate-build.rule"
+		},
+		{
+			"file" : "/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/_deps/ruy-subbuild/ruy-populate-prefix/src/ruy-populate-stamp/ruy-populate-test.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"ruy-populate"
+		],
+		"name" : "ruy-populate"
+	}
+}

@@ -1,0 +1,3 @@
+repository='https://github.com/google/gemmlowp'
+module=''
+tag='origin'

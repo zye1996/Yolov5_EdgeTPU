@@ -1,0 +1,165 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_1a691/fast && /usr/bin/make  -f CMakeFiles/cmTC_1a691.dir/build.make CMakeFiles/cmTC_1a691.dir/build
+make[1]: Entering directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1a691.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_1a691.dir/src.c.o -c /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_1a691
+/home/yzy/Documents/clion-2020.3.2/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1a691.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_1a691.dir/src.c.o -o cmTC_1a691 
+/usr/bin/ld: CMakeFiles/cmTC_1a691.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x5e): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x6f): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_1a691.dir/build.make:106: cmTC_1a691] Error 1
+make[1]: Leaving directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+make: *** [Makefile:140: cmTC_1a691/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e7b77/fast && /usr/bin/make  -f CMakeFiles/cmTC_e7b77.dir/build.make CMakeFiles/cmTC_e7b77.dir/build
+make[1]: Entering directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e7b77.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_e7b77.dir/CheckFunctionExists.c.o -c /home/yzy/Documents/clion-2020.3.2/bin/cmake/linux/share/cmake-3.19/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e7b77
+/home/yzy/Documents/clion-2020.3.2/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e7b77.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_e7b77.dir/CheckFunctionExists.c.o -o cmTC_e7b77  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_e7b77.dir/build.make:106: cmTC_e7b77] Error 1
+make[1]: Leaving directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+make: *** [Makefile:140: cmTC_e7b77/fast] Error 2
+
+
+
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wshorten64to32 failed with the following output:
+Change Dir: /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_59f03/fast && /usr/bin/make  -f CMakeFiles/cmTC_59f03.dir/build.make CMakeFiles/cmTC_59f03.dir/build
+make[1]: Entering directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_59f03.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wshorten64to32  -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Werror   -Wshorten-64-to-32 -o CMakeFiles/cmTC_59f03.dir/src.cxx.o -c /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wshorten-64-to-32'
+make[1]: *** [CMakeFiles/cmTC_59f03.dir/build.make:85: CMakeFiles/cmTC_59f03.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+make: *** [Makefile:140: cmTC_59f03/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wenumconversion failed with the following output:
+Change Dir: /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2a8d9/fast && /usr/bin/make  -f CMakeFiles/cmTC_2a8d9.dir/build.make CMakeFiles/cmTC_2a8d9.dir/build
+make[1]: Entering directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2a8d9.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wenumconversion  -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Werror   -Wenum-conversion -o CMakeFiles/cmTC_2a8d9.dir/src.cxx.o -c /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wenum-conversion'; did you mean '-Wno-conversion'?
+make[1]: *** [CMakeFiles/cmTC_2a8d9.dir/build.make:85: CMakeFiles/cmTC_2a8d9.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+make: *** [Makefile:140: cmTC_2a8d9/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wcpp11extensions failed with the following output:
+Change Dir: /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_3067f/fast && /usr/bin/make  -f CMakeFiles/cmTC_3067f.dir/build.make CMakeFiles/cmTC_3067f.dir/build
+make[1]: Entering directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_3067f.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Wcpp11extensions  -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Werror   -Wc++11-extensions -o CMakeFiles/cmTC_3067f.dir/src.cxx.o -c /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wc++11-extensions'; did you mean '-fms-extensions'?
+make[1]: *** [CMakeFiles/cmTC_3067f.dir/build.make:85: CMakeFiles/cmTC_3067f.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+make: *** [Makefile:140: cmTC_3067f/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_wd981 failed with the following output:
+Change Dir: /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_1a0cf/fast && /usr/bin/make  -f CMakeFiles/cmTC_1a0cf.dir/build.make CMakeFiles/cmTC_1a0cf.dir/build
+make[1]: Entering directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_1a0cf.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_wd981  -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -Werror   -wd981 -o CMakeFiles/cmTC_1a0cf.dir/src.cxx.o -c /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-wd981'
+make[1]: *** [CMakeFiles/cmTC_1a0cf.dir/build.make:85: CMakeFiles/cmTC_1a0cf.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+make: *** [Makefile:140: cmTC_1a0cf/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_wd2304 failed with the following output:
+Change Dir: /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d9e21/fast && /usr/bin/make  -f CMakeFiles/cmTC_d9e21.dir/build.make CMakeFiles/cmTC_d9e21.dir/build
+make[1]: Entering directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d9e21.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_wd2304  -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -Werror   -wd2304 -o CMakeFiles/cmTC_d9e21.dir/src.cxx.o -c /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-wd2304'
+make[1]: *** [CMakeFiles/cmTC_d9e21.dir/build.make:85: CMakeFiles/cmTC_d9e21.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+make: *** [Makefile:140: cmTC_d9e21/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_STRICTANSI failed with the following output:
+Change Dir: /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f7478/fast && /usr/bin/make  -f CMakeFiles/cmTC_f7478.dir/build.make CMakeFiles/cmTC_f7478.dir/build
+make[1]: Entering directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f7478.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_STRICTANSI  -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -Werror   -strict-ansi -o CMakeFiles/cmTC_f7478.dir/src.cxx.o -c /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-strict-ansi'; did you mean '-fstrict-enums'?
+make[1]: *** [CMakeFiles/cmTC_f7478.dir/build.make:85: CMakeFiles/cmTC_f7478.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+make: *** [Makefile:140: cmTC_f7478/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Qunusedarguments failed with the following output:
+Change Dir: /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_cb354/fast && /usr/bin/make  -f CMakeFiles/cmTC_cb354.dir/build.make CMakeFiles/cmTC_cb354.dir/build
+make[1]: Entering directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_cb354.dir/src.cxx.o
+/usr/bin/c++ -DCOMPILER_SUPPORT_Qunusedarguments  -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wshadow -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -Werror   -Qunused-arguments -o CMakeFiles/cmTC_cb354.dir/src.cxx.o -c /home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Qunused-arguments'
+make[1]: *** [CMakeFiles/cmTC_cb354.dir/build.make:85: CMakeFiles/cmTC_cb354.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/yzy/CLionProjects/Yolo_EdgeTPU/cmake-build-debug/CMakeFiles/CMakeTmp'
+make: *** [Makefile:140: cmTC_cb354/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
