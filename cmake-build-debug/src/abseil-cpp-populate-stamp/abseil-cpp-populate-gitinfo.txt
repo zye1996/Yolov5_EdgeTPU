@@ -1,3 +1,0 @@
-repository='https://github.com/abseil/abseil-cpp'
-module=''
-tag='origin'

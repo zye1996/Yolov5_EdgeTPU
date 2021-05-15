@@ -1,12 +1,18 @@
-cmake_minimum_required(VERSION 3.16)
-
+cmake_minimum_required(VERSION 3.11)
 set(ProjectName "Yolo_EdgeTPU")
 project(${ProjectName})
 
-set(CMAKE_CXX_STANDARD 11)
-set(TENSORFLOW_SOURCE_DIR "/home/yzy/libs/tensorflow-2.4.1")
+set(CMAKE_C_FLAGS "-Wall -pthread")
+set(CMAKE_C_FLAGS_DEBUG "-g -O0")
+set(CMAKE_C_FLAGS_RELEASE "-O3")
+set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -std=c++17 -lstdc++")
+set(CMAKE_CXX_FLAGS_DEBUG ${CMAKE_C_FLAGS_DEBUG})
+set(CMAKE_CXX_FLAGS_RELEASE ${CMAKE_C_FLAGS_RELEASE})
 
-# Get CPU Architechture
+# Must match with commit that libedgetpu.so was built from.
+set(TENSORFLOW_COMMIT 85c8b2a817f95a3e979ecd1ed95bff1dc1335cff)
+
+# GET CPU Architechture
 if(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
     set(EDGE_ARCH "k8")
     set(TF_COMMAND make -j8 BUILD_WITH_NNAPI=false -C ${CMAKE_BINARY_DIR}/tensorflow/src/tf -f tensorflow/lite/tools/make/Makefile lib)
@@ -28,49 +34,58 @@ endif()
 
 message("System ARCH is ${CMAKE_SYSTEM_PROCESSOR} ${EDGE_ARCH}")
 
+include(ExternalProject)
+message("${TF_COMMAND}")
+ExternalProject_Add(tf
+        GIT_REPOSITORY https://github.com/tensorflow/tensorflow
+        GIT_TAG ${TENSORFLOW_COMMIT}
+        PREFIX "tensorflow"
+        CONFIGURE_COMMAND ./tensorflow/lite/tools/make/download_dependencies.sh
+        BUILD_IN_SOURCE 1
+        BUILD_COMMAND ${TF_COMMAND}
+        INSTALL_COMMAND cp -f ${CMAKE_BINARY_DIR}/tensorflow/src/tf/tensorflow/lite/tools/make/gen/${TF_INSTALL_PREFIX}/lib/libtensorflow-lite.a ${CMAKE_BINARY_DIR}/
+        )
+
 # libedgetpu has armv7l as armv7a.
 if(${EDGE_ARCH} STREQUAL "armv7l")
     set(EDGE_ARCH "armv7a")
 endif()
 
-# Include tflite
-if(NOT TENSORFLOW_SOURCE_DIR)
-    get_filename_component(TENSORFLOW_SOURCE_DIR
-            "${CMAKE_CURRENT_LIST_DIR}/../../../../"
-            ABSOLUTE)
-endif()
+link_directories(${CMAKE_BINARY_DIR}/absl/)
 
-add_subdirectory(
-        "${TENSORFLOW_SOURCE_DIR}/tensorflow/lite"
-        "${CMAKE_CURRENT_BINARY_DIR}/tensorflow-lite" EXCLUDE_FROM_ALL)
-
-
+set(TF_ET_SRC_LIB "${CMAKE_SOURCE_DIR}/libedgetpu/direct/${EDGE_ARCH}/libedgetpu.so.1.0")
 set(TF_LITE_LIB "${CMAKE_BINARY_DIR}/libtensorflow-lite.a")
+
+find_package(OpenCV REQUIRED)
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 include_directories(${CMAKE_SOURCE_DIR}/)
+include_directories(${CMAKE_SOURCE_DIR}/src/)
+include_directories(${CMAKE_SOURCE_DIR}/include/)
 include_directories(${CMAKE_SOURCE_DIR}/libedgetpu/)
-include_directories(${CMAKE_SOURCE_DIR}/libedgetpu/tflite/public)
+include_directories(${CMAKE_BINARY_DIR}/tensorflow/src/tf/)
+include_directories(${CMAKE_BINARY_DIR}/tensorflow/src/tf/tensorflow/lite/tools/make/downloads/flatbuffers/include/)
+include_directories(${CMAKE_BINARY_DIR}/glog_install/include)
+link_directories(${CMAKE_BINARY_DIR})
 
+add_subdirectory(abseil-cpp)
 
-# Executable
-add_executable(Yolo_EdgeTPU main.cpp YoloDetector.cpp YoloDetector.h utils/tflite_utils.h utils/tflite_utils.cpp utils/model_utils.h utils/model_utils.cpp YoloDecoder.cpp YoloDecoder.h anchor.h utils/label_utils.h utils/label_utils.cpp utils/image_utils.h utils/image_utils.cpp)
-
-# For OpenCV
-find_package(OpenCV REQUIRED)
-target_include_directories(${ProjectName} PUBLIC ${OpenCV_INCLUDE_DIRS})
-target_link_libraries(${ProjectName} ${OpenCV_LIBS})
-
-# For Glog
-find_package (glog 0.5.0 REQUIRED)
-target_link_libraries(${ProjectName} glog::glog)
-
-# For EdgeTPU
-set(TF_ET_SRC_LIB "${CMAKE_SOURCE_DIR}/libedgetpu/out/direct/${EDGE_ARCH}/libedgetpu.so.1.0")
-target_link_libraries(${ProjectName} ${TF_ET_SRC_LIB})
-
-# For TFLITE
-target_link_libraries(Yolo_EdgeTPU tensorflow-lite ${CMAKE_DL_LIBS})
-
-# OUTPUT DIR
+# create output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/out/${EDGE_ARCH})
+add_custom_target(build-time-make-directory ALL
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+
+add_library(utils
+        src/image_utils.h src/image_utils.cpp
+        src/model_utils.h src/model_utils.cpp
+        src/tflite_utils.h src/tflite_utils.cpp
+        src/label_utils.h src/label_utils.cpp)
+target_link_libraries(utils absl::strings)
+
+add_executable(${PROJECT_NAME}
+        src/main.cpp
+        src/YoloDecoder.cpp
+        src/YoloDecoder.h
+        )
+target_link_libraries(${PROJECT_NAME} utils ${OpenCV_LIBS} ${TF_LITE_LIB} ${TF_ET_SRC_LIB} -ldl)
+add_dependencies(${PROJECT_NAME} tf utils)
