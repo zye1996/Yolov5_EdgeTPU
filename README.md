@@ -17,7 +17,8 @@ to install absl library
 
     - compile: ```make -j4```
    
-3. Run the demo with command ```out/k8/Yolo_EdgeTPU``` with default model selection.
+3. The executable file will be located at ```out``` folder in project folder. Run the demo with command ```out/k8/Yolo_EdgeTPU --model_path=MODEL_PATH --label_path=LABEL_PATH```
+   from project folder where model_path and label_path should point to the files in ```model``` directory.
 
 
 

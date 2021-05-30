@@ -17,6 +17,7 @@ int main(int argc, char** argv) {
     // parse arguments
     cv::String keys =
             "{model_path  | model/yolov5s6-int8_edgetpu.tflite | edgetpu model path}"
+            "{label_path  | model/coco-labels.csv | label path}"
             "{source      | 0    | camera index}"
             "{help        |      | show help message}";
 
@@ -54,7 +55,8 @@ int main(int argc, char** argv) {
 
     // Build decoder
     YoloDecoder yoloDecoder(required_shape[0]);
-    auto label = coral::ReadLabelFile("/home/yzy/CLionProjects/Yolo_EdgeTPU/model/coco-labels.csv");
+    auto label_path = parser.get<cv::String>("label_path");
+    auto label = coral::ReadLabelFile(label_path);
     std::vector<cv::Scalar> color;
     std::default_random_engine generator;
     std::uniform_int_distribution<int> distribution(0,255);

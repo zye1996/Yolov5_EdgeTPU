@@ -51,8 +51,6 @@ if(${EDGE_ARCH} STREQUAL "armv7l")
     set(EDGE_ARCH "armv7a")
 endif()
 
-link_directories(${CMAKE_BINARY_DIR}/absl/)
-
 set(TF_ET_SRC_LIB "${CMAKE_SOURCE_DIR}/libedgetpu/direct/${EDGE_ARCH}/libedgetpu.so.1.0")
 set(TF_LITE_LIB "${CMAKE_BINARY_DIR}/libtensorflow-lite.a")
 

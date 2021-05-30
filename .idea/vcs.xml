@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/abseil-cpp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build/tensorflow/src/tf" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cmake-build-debug/abseil-cpp" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cmake-build-debug/eigen" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/cmake-build-debug/farmhash" vcs="Git" />
