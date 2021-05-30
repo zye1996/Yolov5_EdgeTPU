@@ -79,6 +79,7 @@ add_library(utils
         src/tflite_utils.h src/tflite_utils.cpp
         src/label_utils.h src/label_utils.cpp)
 target_link_libraries(utils absl::strings)
+add_dependencies(utils tf)
 
 add_executable(${PROJECT_NAME}
         src/main.cpp
